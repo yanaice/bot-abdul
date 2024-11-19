@@ -1,0 +1,46 @@
+name: Deploy to Google Cloud Functions
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Create credentials directory
+        run: mkdir -p credentials
+
+      - name: Create service account file
+        run: echo "${{ secrets.SERVICE_ACCOUNT }}" > credentials/secret.json
+
+      - name: Setup Google Cloud CLI
+        uses: google-github-actions/setup-gcloud@v2
+        with:
+          project_id: ${{ secrets.GCP_PROJECT_ID }}
+          service_account_key: ${{ secrets.SERVICE_ACCOUNT }}
+
+      - name: Create deployment package
+        run: zip -r function.zip . -x "*.git*" "*.sh" "*.md" "node_modules/*"
+
+      - name: Deploy to Cloud Functions
+        run: |
+          gcloud functions deploy abdul-bot \
+          --gen2 \
+          --runtime=nodejs20 \
+          --region=asia-southeast1 \
+          --source=function.zip \
+          --entry-point=lineWebhook \
+          --trigger-http \
+          --allow-unauthenticated
