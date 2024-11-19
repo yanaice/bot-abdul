@@ -31,6 +31,9 @@ jobs:
           project_id: ${{ secrets.GCP_PROJECT_ID }}
           service_account_key: ${{ secrets.SERVICE_ACCOUNT }}
 
+      - name: Authenticate with Google Cloud
+        run: gcloud auth activate-service-account --key-file=credentials/secret.json
+
       - name: Create deployment package
         run: zip -r function.zip . -x "*.git*" "*.sh" "*.md" "node_modules/*"
 
