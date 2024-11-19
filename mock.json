@@ -1,0 +1,23 @@
+[
+  {
+    "type": "message",
+    "message": {
+      "type": "text",
+      "id": "535319913309405625",
+      "quoteToken": "vFVOGie-kKj_qABE_Q8SdJaQ4C914QvfVfSNyEWCnDzJVGYNMZUCuCA2XVnWHl_cHQxHet5g23t7J0mOAT5V__zgPKWgWLYxIPtz-VOTzViru2fTTg5BrlCsbndaS1QUGMFN0PtpX2fI0ByIFD0x9w",
+      "text": "สวัสดี"
+    },
+    "webhookEventId": "01JCYV26KKE5PVBGBAA9RK4M7X",
+    "deliveryContext": {
+      "isRedelivery": false
+    },
+    "timestamp": 1731906836877,
+    "source": {
+      "type": "group",
+      "groupId": "C265ab30560a9e9c2ac831d0c310d6fbb",
+      "userId": "U0dae593c5022937ef6a5f61c53336321"
+    },
+    "replyToken": "08105dcd8fd54a608fafdc76d93378b2",
+    "mode": "active"
+  }
+]

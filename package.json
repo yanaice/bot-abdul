@@ -1,0 +1,16 @@
+{
+  "type": "module",
+  "engines": {
+    "node": "20.x"
+  },
+  "dependencies": {
+    "@google-cloud/functions-framework": "^3.0.0",
+    "@line/bot-sdk": "9.5.0",
+    "@langchain/langgraph": "0.2.20",
+    "@langchain/core": "0.3.17",
+    "@langchain/openai": "0.3.12",
+    "@langchain/community": "0.3.12",
+    "zod": "3.23.8",
+    "googleapis": "144.0.0"
+  }
+}

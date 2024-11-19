@@ -1,0 +1,3 @@
+# Deploy
+
+./deploy.sh
